@@ -1,0 +1,14 @@
+version: '2'
+services:
+    referencetestangularjhipster-app:
+        image: referencetestangularjhipster
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://referencetestangularjhipster-postgresql:5432/referenceTestAngularJhipster
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    referencetestangularjhipster-postgresql:
+        extends:
+            file: postgresql.yml
+            service: referencetestangularjhipster-postgresql
